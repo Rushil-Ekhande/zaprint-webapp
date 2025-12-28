@@ -1,26 +1,267 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Primary Colors */
+    --color-primary: #0F4C5C; /* teal-800 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #5C7A89; /* blue-gray-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #E55B13; /* orange-600 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Background Colors */
+    --color-background: #FAFBFC; /* gray-50 */
+    --color-foreground: #1A2332; /* slate-900 */
+    
+    /* Surface Colors */
+    --color-card: #FFFFFF; /* white */
+    --color-card-foreground: #1A2332; /* slate-900 */
+    
+    /* Popover Colors */
+    --color-popover: #FFFFFF; /* white */
+    --color-popover-foreground: #1A2332; /* slate-900 */
+    
+    /* Muted Colors */
+    --color-muted: #F1F5F9; /* slate-100 */
+    --color-muted-foreground: #64748B; /* slate-500 */
+    
+    /* Border & Input */
+    --color-border: #E2E8F0; /* slate-200 */
+    --color-input: #E2E8F0; /* slate-200 */
+    --color-ring: #0F4C5C; /* teal-800 */
+    
+    /* Status Colors */
+    --color-success: #059669; /* emerald-600 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #D97706; /* amber-600 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    --color-error: #DC2626; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #DC2626; /* red-600 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Radius */
+    --radius: 0.375rem;
+  }
+
+  .dark {
+    /* Primary Colors */
+    --color-primary: #0F4C5C; /* teal-800 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    
+    /* Secondary Colors */
+    --color-secondary: #5C7A89; /* blue-gray-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent Colors */
+    --color-accent: #D14D0F; /* orange-700 - reduced saturation */
+    --color-accent-foreground: #FFFFFF; /* white */
+    
+    /* Background Colors */
+    --color-background: #0A0F12; /* slate-950 */
+    --color-foreground: #EBF0F5; /* slate-100 - 92% white */
+    
+    /* Surface Colors */
+    --color-card: #1A2332; /* slate-800 */
+    --color-card-foreground: #EBF0F5; /* slate-100 */
+    
+    /* Popover Colors */
+    --color-popover: #1A2332; /* slate-800 */
+    --color-popover-foreground: #EBF0F5; /* slate-100 */
+    
+    /* Muted Colors */
+    --color-muted: #2A3441; /* slate-700 */
+    --color-muted-foreground: #94A3B8; /* slate-400 - 75% white */
+    
+    /* Border & Input */
+    --color-border: #475569; /* slate-600 */
+    --color-input: #475569; /* slate-600 */
+    --color-ring: #0F4C5C; /* teal-800 */
+    
+    /* Status Colors */
+    --color-success: #059669; /* emerald-600 */
+    --color-success-foreground: #FFFFFF; /* white */
+    
+    --color-warning: #D97706; /* amber-600 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    
+    --color-error: #DC2626; /* red-600 */
+    --color-error-foreground: #FFFFFF; /* white */
+    
+    --color-destructive: #DC2626; /* red-600 */
+    --color-destructive-foreground: #FFFFFF; /* white */
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Pro', serif;
+  }
+  
+  h1 {
+    @apply text-4xl leading-tight;
+    font-weight: 600;
+  }
+  
+  h2 {
+    @apply text-3xl leading-tight;
+    font-weight: 600;
+  }
+  
+  h3 {
+    @apply text-2xl leading-snug;
+    font-weight: 600;
+  }
+  
+  h4 {
+    @apply text-xl leading-snug;
+    font-weight: 500;
+  }
+  
+  h5 {
+    @apply text-lg leading-normal;
+    font-weight: 500;
+  }
+  
+  button {
+    @apply transition-all duration-250 ease-out;
+  }
+  
+  button:active {
+    @apply scale-97;
+  }
+  
+  button:hover {
+    @apply -translate-y-px;
+  }
+  
+  input, textarea, select {
+    @apply transition-all duration-250 ease-out;
+  }
+  
+  a {
+    @apply transition-all duration-250 ease-out;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  
+  @media (max-width: 768px) {
+    body {
+      font-size: 15px;
+    }
+    
+    html {
+      scroll-padding-top: 64px;
+    }
+  }
+}
+
+@layer utilities {
+  .scale-97 {
+    transform: scale(0.97);
+  }
+  
+  .duration-250 {
+    transition-duration: 250ms;
+  }
+  
+  .ease-out {
+    transition-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1);
+  }
+  
+  .spring {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  
+  .text-caption {
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    letter-spacing: 0.025em;
+  }
+  
+  .text-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-feature-settings: 'tnum' on, 'lnum' on;
+  }
+  
+  .shadow-warm-sm {
+    box-shadow: 0 2px 4px rgba(15, 76, 92, 0.08);
+  }
+  
+  .shadow-warm {
+    box-shadow: 0 4px 6px rgba(15, 76, 92, 0.1);
+  }
+  
+  .shadow-warm-md {
+    box-shadow: 0 6px 12px rgba(15, 76, 92, 0.12);
+  }
+  
+  .shadow-warm-lg {
+    box-shadow: 0 12px 24px rgba(15, 76, 92, 0.14);
+  }
+  
+  .shadow-warm-xl {
+    box-shadow: 0 20px 40px rgba(15, 76, 92, 0.16);
+  }
+  
+  .shadow-warm-2xl {
+    box-shadow: 0 25px 50px -12px rgba(15, 76, 92, 0.16);
+  }
+}
+
+/* ZAPRINT Landing Page Animations */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-up.animate-fade-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth scrolling for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom hover effects for landing page */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
